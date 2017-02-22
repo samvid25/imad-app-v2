@@ -61,10 +61,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/page1', function (req, res){
+app.get('/:pageName', function (req, res){
    // res.send('Page 1 request will be served here');
     //res.sendFile(path.join(__dirname, 'ui', 'page1.html'));
-    res.send(createTemplate(page1));
+    var pageName = req.params.pageName;
+    res.send(createTemplate(pageName));
 });
 
 app.get('/ui/style.css', function (req, res) {
